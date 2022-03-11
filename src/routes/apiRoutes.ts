@@ -1,7 +1,7 @@
-// import express from "express";
-// import { BaseController } from "../controllers/base_controller";
+import express from "express";
+import { BaseController } from "../controllers/base_controller";
 
-// const router = express.Router();
-// new BaseController().loadRoutes("/movies", router);
+const router = express.Router();
+new BaseController().loadRoutes("/users", router);
 
-// export { router as apiRouter };
+export { router as apiRouter };
