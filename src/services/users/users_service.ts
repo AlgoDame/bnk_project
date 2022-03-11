@@ -4,7 +4,7 @@ import Knex from 'knex';
 import dotenv from "dotenv";
 dotenv.config();
 
-const config = require("../../knexfile.js");
+const config = require("../../../knexfile.js");
 const environment = process.env.NODE_ENV!;
 const database = Knex(config[environment]);
 
@@ -18,14 +18,36 @@ export class UsersService {
     }
 
     public static async createUserRecord(req: Request) {
+        let { 
+            first_name,
+            surname,
+            password,
+            email,
+            address,
+            phone_number,
+            date_of_birth,
+            secret_question,
+            secret_answer
+
+        } = req.body;
+        phone_number = phone_number.toString();
+
         const user = {
-            ...req.body
+            first_name,
+            surname,
+            password,
+            email,
+            address,
+            phone_number,
+            date_of_birth,
+            secret_question,
+            secret_answer
         }
-        
-        const savedUser = await database('users').insert(user);
+
+        const savedUser = database.insert(user).into('users');
         return savedUser;
-        
+
     }
 
-    
+
 }

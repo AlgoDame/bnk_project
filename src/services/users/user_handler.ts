@@ -8,7 +8,7 @@ export class UserHandler extends BaseService {
             let failedValidation = UsersService.validateRegistration(req);
             if (failedValidation) return this.sendError(req, res, 400, failedValidation);
 
-            let savedUser = UsersService.createUserRecord(req);
+            let savedUser = await UsersService.createUserRecord(req);
             return this.sendResponse(req, res, 201, savedUser);
 
         } catch (error) {

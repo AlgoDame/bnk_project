@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = function (knex, Promise) {
+exports.up = async function (knex, Promise) {
     await knex.schema
         .createTable('users', function (table) {
             table.uuid("user_id").primary().defaultTo(knex.raw("(UUID())"));
@@ -11,7 +11,7 @@ exports.up = function (knex, Promise) {
             table.string('password').notNullable();
             table.string('email').notNullable().unique();
             table.string('address').notNullable();
-            table.integer('phone_number').notNullable().unique();
+            table.string('phone_number').notNullable().unique();
             table.date('date_of_birth').notNullable();
             table.string('secret_question').notNullable();
             table.string('secret_answer').notNullable();
