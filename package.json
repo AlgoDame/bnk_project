@@ -27,9 +27,11 @@
   },
   "dependencies": {
     "@types/morgan": "^1.9.3",
+    "bcrypt": "^5.0.1",
     "dotenv": "^12.0.3",
     "express": "^4.17.2",
     "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.3",
     "knex-migrate": "^1.7.4",
     "morgan": "^1.10.0",
